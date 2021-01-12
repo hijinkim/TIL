@@ -13,7 +13,7 @@
 * [Python 기초](Python/Python%기초.md)
 
   * [입출력](Python/Python%20기초.md#입출력)
-* [변수](Python/Python%20기초.md#변수)
+  * [변수](Python/Python%20기초.md#변수)
   * [연산자](Python/Python%20기초.md#연산자)
   * [조건문](Python/Python%20기초.md#조건문)
   * [반복문](Python/Python%20기초.md#반복문)
