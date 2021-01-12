@@ -413,3 +413,306 @@ print('지금은 %d시 %d분 입니다' %(result[0], result[1]))
 * `<= ` , `issubset()` : 부분집합인지 조사
 * `>=` , `issuperset` : 포함집합인지 조사
 
+
+
+## 컬렉션 관리
+
+### enumerate
+
+> 순서값과 요소값을 튜플로 묶은 컬렉션을 리턴
+>
+> 두 번째 인수로 시작값 지정 가능
+
+```python
+score = [10, 20, 30, 40, 50]
+for no, s in enumerate(score, 1):
+    print(str(no) + '번 학생의 성적 :', s)
+```
+
+
+
+### zip
+
+> 여러 개의 컬렉션을 합쳐 하나로 만든다
+>
+> 두 리스트의 대응되는 요소끼리 짝을 지어 튜플 리스트 생성
+
+```python
+yoil = ['월', '화', '수', '목', '금']
+food = ['갈비탕', '순대국', '칼국수']
+menu = zip(yoil, food)
+dict(zip(yoil, food)) #yoil이 키, food가 값인 딕셔너리
+```
+
+
+
+### any, all
+
+* `any` : 리스트에 참인 요소가 하나라도 있는지, 빈 리스트인 경우 거짓
+* `all` : 리스트의 모든 요소가 참인지, 빈 리스트인 경우 참
+
+
+
+### filter
+
+> 리스트의 요소 중 조건에 맞는 것만 골라내는 것
+>
+> 첫 번째 인수는 조건 지정, 두 번째 인수는 대상 리스트
+
+```python
+def flunk(s):
+    return s < 60
+
+score = [10, 20, 50, 60, 70]
+for s in filter(flunk, score):
+    print(s)
+```
+
+
+
+### map
+
+> 모든 요소에 대해 변환 함수를 호출하여 새 요소값으로 구성된 리스트 생성
+>
+> filter와 인수 구조 동일
+
+```python
+def total(s, b):
+    return s + b
+
+score = [10, 20, 30, 40, 50]
+bonus = [5, 4, 3, 2, 1]
+for s in map(total, score, bonus):
+    print(s)
+```
+
+
+
+### 람다 함수
+
+> `lambda 인수 : 식`
+>
+> 이름이 없고 입력과 출력만으로 함수를 정의
+>
+> 인수는 여러 개 가능, 인수로부터 계산한 식 리턴
+
+```python
+score = [10, 20, 30, 40, 50]
+for s in map(lambda x:x / 2, score):
+	print(s)
+```
+
+
+
+### 리스트 사본
+
+* `list2 = list1.copy()`
+
+* `list2 = list[:]`
+
+* `list2 = copy.deepcopy(list1)`
+
+  ```python
+  list0 = ['a', 'b']
+  list1 = [list0, 1, 2]
+  list2 = list1.copy()
+  
+  list2 = [0][1] = 'c'
+  
+  #list1 = [['a', 'c'], 1, 2]
+  #list2 = [['a', 'c'], 1, 2]
+  #list1과 list2가 내부의 list0을 공유
+  #완전한 사본을 만들기 위해서는 deepcopy 사용
+  ```
+
+
+
+### is
+
+ 두 변수가 같은 객체를 가리키고 있는지
+
+ 컬렉션에 대한 대입은 별명을 하나 더 만드는 것과 같음, 완전한 사본을 만드려면 copy 메서드로 메모리 복사
+
+ 정수는 대입에 의해 일시적으로 같은 객체를 가리킬 수 있지만 다른 값을 대입하면 참조가 변경되어 즉시 분리
+
+
+
+## 표준 모듈
+
+### math 모듈
+
+#### math 모듈에 정의된 상수
+
+* `pi` : 원주율 상수
+* `tau` : 원주율의 2배 되는 상수
+* `e` : 자연 대수 상수
+* `inf` : 무한대 값
+* `nan` : 숫자가 아닌 값
+
+
+
+#### math 모듈 함수
+
+* `sqrt(x)` : x의 제곱근
+* `pow(x, y)` : x의 y승
+* `hypot(x, y)` : x제곱 + y제곱의 제곱근
+* `factorial(x)` : x의 계승
+* `sin(x)` , `cos(x)` , `tan(x)` : 삼각함수
+* `asin(x)` , `acos(x)` , `atan(x)` , `atan2(y, x)` : 역삼각함수
+* `sinh(x)`, `cosh(x)` , `tanh(x)` : 쌍곡선 삼각함수
+* `asinh(x)` , `acosh(x)` , `atanh(x)` : 쌍곡선 역삼각함수
+* `degrees(x)` : 라디안 값을 각도로
+* `radians(x)` : 각도를 라디안 값으로
+* `ceil(x)` : 수직선 오른쪽의 올림 값
+* `floor(x)` : 수직선 왼쪽의 내림값
+* `fabs(x)` : x의 절대값
+* `trunc(x)` : x의 소수점 이하 버림
+* `log(x, base)` : base에 대한 x의 로그
+* `log10(x)` : 10의 로그
+* `gcd(a, b)` : a, b의 최대공약수
+
+
+
+### statistics 모듈
+
+#### statistics 모듈 함수
+
+* `mean` : 평균
+* `harmonic_mean` : 조화평균
+* `median` : 중앙값, 짝수인 경우 보간 값
+* `median_low` : 중앙값, 집합 내 낮은 값
+* `median_high` : 중앙값, 집합 내 높은 값
+* `median_grouped` : 그룹 연속 중앙값
+* `mode` : 최빈값
+* `pstdev` : 모표준편차
+* `stdev` : 표준편차
+* `variance` : 분산
+
+
+
+### time 모듈
+
+#### time 모듈 함수
+
+* `time` : 에폭시간, 유닉스 시간
+* `ctime` : 문자열 형태의 날짜, 시간
+* `localtime` : 현지 시간
+* `gmtime` : 세계 표준 시간
+* `sleep(x)` : x초 대기 후 실행
+
+
+
+### calendar 모듈
+
+#### calendar 모듈 함수
+
+* `calendar` : 인수로 받은 년도의 달력 객체 리턴
+* `month` : 인수로 년도와 달을 받아 해당 월의 달력 객체 리턴
+* `prcal` : 인수로 받은 년도의 달력 직접 출력
+* `prmonth` : 인수로 년도와 달을 받아 해당 월의 달력 직접 출력
+* `weekday` : 특정 날짜가 무슨 요일인지
+
+
+
+### random 모듈
+
+#### random 모듈 함수
+
+* `random` : 0에서 1 미만의 실수 하나 생성
+* `randint(begin, end)` : begin ~ end 사이의 정수 난수 중 하나, end도 범위 포함
+* `uniform` : 실수 난수 생성
+* `choice` : 리스트에서 임의의 요소 하나 리턴
+* `shuffle` : 리스트의 요소 무작위로 섞음
+* `sample` : 리스트 항목 중 n개를 무작위로 뽑아 새로운 리스트 생성
+
+
+
+### sys 모듈
+
+#### sys 모듈 함수
+
+* `version `: 버전
+* `platform` : 플랫폼
+* `byteorder` : 바이트 순서
+* `path` : 모듈 경로
+* `argv` : 명령행 인수 값 읽기
+* `exit` : 프로그램 강제 종료
+
+
+
+## 예외 처리
+
+```python
+try:
+    실행할 명령
+except 예외 as 변수:
+    오류 처리문
+else:
+    예외가 발생하지 않을 때의 처리
+```
+
+
+
+### 예외의 종류
+
+* `NameError` : 명칭이 발견되지 않음, 초기화되지 않은 변수 사용시 발생
+* `ValueError` : 타입은 맞지만 값의 형식이 잘못됨
+* `ZeroDivisionError` : 0으로 나눈 경우
+* `IndexError` : 첨자가 범위를 벗어남
+* `TypeError` : 타입이 맞지 않음
+
+
+
+### raise
+
+> 고의적으로 예외 발생시킴
+
+```python
+def calcsum(n): #1부터 n까지의 합 구하는 함수
+    if n < 0:
+        raise ValueError #return -1로도 표현 가능
+    ...
+    
+    
+try:
+    calcsum(-5)
+except ValueError:
+    오류메시지
+```
+
+
+
+## 자원정리
+
+### finally
+
+> 예외 발생 여부와 상관없이 반드시 실행해야 할 명령 지정
+
+```python
+try:
+    실행할 명령
+finally:
+    예외 발생 여부와 상관없이 실행할 명령
+```
+
+
+
+### assert
+
+> 프로그램의 현재 상태가 맞는지 확인
+>
+> 이상이 발생하는 즉시 이를 확인하여 알려주는 역할
+>
+> 디버깅할 때 확인용
+
+```python
+#assert 조건, 메시지
+assert score <= 100, '점수는 100 이하여야 합니다'
+```
+
+
+
+
+
+
+
