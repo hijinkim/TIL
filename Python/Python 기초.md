@@ -1,3 +1,5 @@
+#####  :open_book:  파이썬 정복, 김상형, 한빛미디어
+
 # Python
 
 > 귀도 반 로섬(Guido van Rossum)이 개발한 인터프리터 방식의 스크립트 언어
@@ -709,6 +711,276 @@ finally:
 #assert 조건, 메시지
 assert score <= 100, '점수는 100 이하여야 합니다'
 ```
+
+
+
+## 파일
+
+### 파일 쓰기
+
+`open(파일 경로, 모드)` : 모드 뒤에는 파일 종류 지정 문자 (디폴트 : rt)
+
+* `r` : 파일 읽기
+* `w` : 파일 쓰기, 이미 존재하면 덮어쓰기
+* `a` : 파일에 데이터 추가
+* `x` : 파일 쓰기, 이미 존재하면 실패
+
+* `t` : 텍스트 파일
+* `b` : 이진 파일
+
+
+
+### 파일 읽기
+
+```python
+try:
+    f = open(파일명, 모드)
+    text = f.read() #파일 전체를 한번에 읽음
+except FileNotFoundError:
+    pass
+finally:
+    f.close() #finally에서 파일 닫는 것이 원칙
+```
+
+* `read` : 파일 전체 한번에 읽기, 인수로 읽을 양 지정 가능
+* `readline` : 한 줄씩 읽으며 마지막에 도달하면 빈 문자열 리턴
+* `readlines` : 파일 전체를 읽어 한 줄씩 문자열로 만들어 리스트 리턴
+
+
+
+### 입출력 위치
+
+* `seek(위치, 기준)` : 위치 변경, 바이트 단위
+  * 기준 0 : 파일 처음
+  * 기준 1 : 현재 위치
+  * 기준 2 : 파일 끝
+* `tell` : 현재 입출력 위치 조사
+
+
+
+### 파일 닫기
+
+* `try finally` : 자원을 정리할 때
+* `with open(파일명, 모드) as f:` with 블록을 벗어나면 파일이 자동으로 닫힘
+
+
+
+## 파일 관리
+
+### 파일 관리 함수
+
+* `shutil.copy(a, b)` : 파일 a를 복사하여 파일 b 생성
+* `shutil.copytree(a, b)` : 디렉토리 복사
+* `shutil.move(a, b)` : 파일 이동
+* `shutil.rmtree(path)` : 디렉토리 삭제
+* `os.rename(a, b)` : 파일 이름 변경
+* `os.remove(f)` : 파일 삭제
+* `os.chmod(f, m)` : 파일 퍼미션 변경
+* `shutil.chown(f, u, g)` : 파일 소유권 변경
+* `os.link(a, b)` : 하드 링크 생성
+* `os.symlink(a, b)` : 심볼릭 링크 생성
+
+
+
+### 디렉토리 관리 함수
+
+* `os.chdir(d)` : 현재 디렉토리 변경
+* `os.mkdir(d)` : 디렉토리 생성
+* `os.rmdir(d)` : 디렉토리 제거
+* `os.getcwd()` : 현재 디렉토리 조사
+* `os.listdir(d)` : 디렉토리 내용 나열
+* `glob.glob(p)` : 패턴과 일치하는 파일의 목록 나열
+* `os.path.isabs(f)` : 절대 경로인지 조사
+* `os.path.abspath(f)` : 파일의 절대 경로
+* `os.path.realpath(f)` : 원본 파일의 경로
+* `os.path.exists(f)` : 파일의 존재 여부 조사
+* `os.path.isfile(f)` : 파일인지 조사
+* `os.path.isdir(f)` : 디렉토리인지 조사
+
+
+
+## 데이터베이스
+
+```python
+con = sqlite3.connect(DB파일) #데이터베이스 열기
+cursor = con.cursor() #SQL문을 실행하고 결과를 읽는 객체인 커서 구함
+
+cursor.execute(SQL문) #SQL 명령 수행
+table = cursor.fetchall() #모든 레코드를 한꺼번에 읽어 리스트로 리턴
+recore = cursor.fetchone() #레코드 하나를 읽으며 반복적으로 호출하면 다음 레코드를 계속 읽어줌
+
+con.commit() #변경 확정
+
+cursor.close() #자원 정리
+con.close() #자원 정리
+```
+
+
+
+## 클래스
+
+### 생성자
+
+> 객체 초기화
+
+```python
+class 이름:
+    def __init__(self, 초기값):
+        멤버 초기화
+    메서드 정의
+```
+
+
+
+### 상속
+
+> 기존 클래스를 확장하여 멤버를 추가하거나 동작을 변경하는 방법
+
+```python
+class 이름(부모):
+    ...
+```
+
+* `super()` : 자식 클래스에서 부모의 메서드를 호출
+
+
+
+### 액세서
+
+> 파이썬은 공식적으로 정보 은폐 지원하지 않음
+>
+> getter와 setter 메서드 정의
+
+```python
+class Date:
+    def __init__(self, month):
+        self.inner_month = month #멤버 이름 어렵게 만들기
+    def getmonth(self):
+        return self.inner_month
+    def setmonth(self):
+        self.inner_month = month
+    month = property(getmonth, setmonth) #프로퍼티 통해 getter, setter는 직접 호출 가능,
+    									 #today.month에 직접 대입은 불가능
+```
+
+```python
+class Date:
+    def __init__(self, month):
+        self.inner_month = month
+    @property #데커레이터로 프로퍼티 정의, getter
+    def month(self):
+        return self.inner_month
+    @month.setter #데커레이터로 프로퍼티 정의, setter
+    def month(self, month):
+        self.inner_month = month
+```
+
+```python
+class Date:
+    def __init__(self, month):
+        self.__month = month # 숨겨진 멤버의 이름을 __로 시작, 바로 참조하지 못하도록
+```
+
+
+
+### 클래스 메서드
+
+```python
+class Car:
+    count = 0
+    def __init__(self, name):
+        self.name = name
+        Car.count += 1
+    @classmethod #데커레이터
+    def outcount(cls): #cls는 클래스에 해당하는 인수
+        print(cls.count)
+        
+pride = Car('프라이드')
+Car.outcount()
+```
+
+
+
+### 정적 메서드
+
+```python
+class Car:
+    @staticmethod
+    def hello():
+        print("오늘도 안전 운행!")
+    ....
+    
+Car.hello()
+```
+
+
+
+### 연산자 메서드
+
+
+| 연산자 |  메서드   | 연산자 |     메서드     |
+| :----: | :-------: | :----: | :------------: |
+|   ==   | `__eq__`  |   *    |   `__mul__`    |
+|   !=   | `__ne__`  |   /    |   `__div__`    |
+|   <    | `__lt__`  |   //   | `__floordiv__` |
+|   >    | `__gt__`  |   %    |   `__mod__`    |
+|   <=   | `__le__`  |   **   |   `__pow__`    |
+|   >=   | `__ge__`  |   <<   |  `__lshift__`  |
+|   +    | `__add__` |   >>   |  `__rshift__`  |
+|   -    | `__sub__` |        |                |
+
+
+
+### 특수 메서드
+
+* `__str__` : str 형식으로 객체를 문자열화
+* `__repr__` : repr 형식으로 객체의 표현식 만들기
+* `__len__` : len 형식으로 객체의 길이 조사
+
+
+
+### 유틸리티 클래스
+
+* Decimal : 오차 없이 정확한 10진 실수 표현, 실수형과는 연산 불가능
+
+  * Context : 연산을 수행하는 방법 지정, getcontext와 setcontext로 컨텍스트 변경
+
+    * BasicContext : 유효자리수 9, ROUND_HALF_UP 반올림
+
+    * ExtendedContext : 유효자리수 9, ROUND_HALF_EVEN 반올림 처리 (짝수에 가까운 쪽으로 반올림, 
+
+      0.5 -> 0, 1.5 -> 2, 2.5 -> 2, 3.5 -> 4)
+
+    * DefaultContext : 유효자리수28, ROUND_HALF_EVEN 반올림 처리
+
+* Fraction : 유리수 표현, 약분해줌, Fraction끼리 연산 가능
+
+  * `Fraction([부호] 분자, 분모)`
+
+* array : 배열
+
+  * `array(타입코드, [초기값])`
+
+    |    타입    |          설명           | 타입 |                  설명                  |
+    | :--------: | :---------------------: | :--: | :------------------------------------: |
+    |    b, B    |   1바이트 정수(char)    |  u   | 2바이트 유니코드 문자 (3.3 이후 지원X) |
+    | h, H, i, l |    2바이트 정수(int)    | l, L |           4바이트 정수(long)           |
+    |    q, Q    | 8바이트 정수(long long) |  f   |          4바이트 실수(float)           |
+    |     d      |  8바이트 실수(double)   |      |                                        |
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
