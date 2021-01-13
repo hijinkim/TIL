@@ -23,8 +23,8 @@
   * [튜플](Python/Python%20기초.md#튜플)
   * [딕셔너리](Python/Python%20기초.md#딕셔너리)
   * [집합](Python/Python%20기초.md#집합)
-  * [컬렉션 관리](Python/Python%20기초.md#컬렉션%관리)
-  * [표준 모듈]()
+  * [컬렉션 관리](Python/Python%20기초.md#컬렉션-관리)
+  * [표준 모듈](Python/Python%20기초.md#표준-모듈)
 
 
 
