@@ -13,7 +13,7 @@
 * [Python 기초](Python/Python%기초.md)
 
   * [입출력](Python/Python%20기초.md#입출력)
-* [변수](Python/Python%20기초.md#변수)
+  * [변수](Python/Python%20기초.md#변수)
   * [연산자](Python/Python%20기초.md#연산자)
   * [조건문](Python/Python%20기초.md#조건문)
   * [반복문](Python/Python%20기초.md#반복문)
@@ -23,8 +23,8 @@
   * [튜플](Python/Python%20기초.md#튜플)
   * [딕셔너리](Python/Python%20기초.md#딕셔너리)
   * [집합](Python/Python%20기초.md#집합)
-  * [컬렉션 관리](Python/Python%20기초.md#컬렉션%관리)
-  * [표준 모듈]()
+  * [컬렉션 관리](Python/Python%20기초.md#컬렉션-관리)
+  * [표준 모듈](Python/Python%20기초.md#표준-모듈)
 
 
 
