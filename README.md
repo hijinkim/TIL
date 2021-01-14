@@ -25,8 +25,8 @@
   * [컬렉션 관리](Python/Python%20기초.md#컬렉션-관리)
   * [표준 모듈](Python/Python%20기초.md#표준-모듈)
 
-* [`if __name__ == "__main__":`](Python/if name == 'main'.md)
-* [파이썬 반올림](Python/파이썬%반올림.md)
+* [`__main__`](Python/__main__.md)
+* [파이썬 반올림](Python/round_half_even.md)
 
 
 
