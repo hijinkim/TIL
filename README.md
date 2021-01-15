@@ -24,7 +24,7 @@
   * [집합](Python/Python_basics.md#집합)
   * [컬렉션 관리](Python/Python_basics.md#컬렉션-관리)
   * [표준 모듈](Python/Python_basics.md#표준-모듈)
-* [예외 처리](Python/Python_basics.md#예외-처리)
+  * [예외 처리](Python/Python_basics.md#예외-처리)
   * [파일](Python/Python_basics.md#파일)
   * [데이터베이스](Python/Python_basics.md#데이터베이스)
   * [클래스](Python/Python_basics.md#클래스)
