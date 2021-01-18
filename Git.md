@@ -33,7 +33,7 @@ Git은 폴더 단위로 프로젝트/코드를 관리
 * `git push [원격저장소 이름] [브랜치 이름]` : 원격저장소에 코드 업로드
   * `git push -u origin master` : upstream 설정
 * `git clone [원격저장소 주소] (폴더명)` : 원격저장소의 코드 다운로드
-* `git bash` : 현재 생성되어 있는 branch 목록 출력
+* `git branch` : 현재 생성되어 있는 branch 목록 출력
 
 * `git branch [브랜치 이름]` : 새로운 branch 생성
 
