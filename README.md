@@ -19,7 +19,7 @@
 
 ### Database
 
-* [데이터베이스 기초](Database/Database.md)
+* [데이터베이스](Database/Database.md)
 
 
 
