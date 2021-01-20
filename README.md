@@ -21,6 +21,8 @@
 
 * [데이터베이스](Database/Database.md)
 * [SQL - DML](Database/SQL_DML.md)
+* [SQL 고급](Database/SQL%고급.md)
+* [SQL - JOIN](Database/SQL_Join.md)
 
 
 
