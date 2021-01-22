@@ -21,8 +21,16 @@
 
 * [데이터베이스](Database/Database.md)
 * [SQL - DML](Database/SQL_DML.md)
+* [SQL - DDL](Database/SQL_DDL.md)
 * [SQL 고급](Database/SQL%고급.md)
 * [SQL - JOIN](Database/SQL_Join.md)
+
+
+
+### MongoDB
+
+* [내가 보려고 정리한 MongoDBa 명령어](Database/내가_보려고_정리한_MongoDB_명령어.md)
+* [insert와 insertOne, insertMany 차이점](Database/MongoDB_insert_insertOne.md)
 
 
 
