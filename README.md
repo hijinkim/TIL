@@ -32,13 +32,6 @@
 
 
 
-### MongoDB
-
-* [내가 보려고 정리한 MongoDBa 명령어](Database/내가_보려고_정리한_MongoDB_명령어.md)
-* [insert와 insertOne, insertMany 차이점](Database/MongoDB_insert_insertOne.md)
-
-
-
 ### etc
 
 * [CLI 명령어 정리](CLI.md)
