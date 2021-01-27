@@ -1,6 +1,6 @@
 ## TCP 3-way handshake
 
-![image-20210127151420170](C:\Users\Hijin\AppData\Roaming\Typora\typora-user-images\image-20210127151420170.png)
+![KakaoTalk_20210127_151312331](C:\Users\Hijin\Documents\카카오톡 받은 파일\KakaoTalk_20210127_151312331.jpg)
 
 ### Three way handshake
 
