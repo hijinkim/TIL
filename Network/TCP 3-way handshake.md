@@ -1,6 +1,6 @@
 ## TCP 3-way handshake
 
-![KakaoTalk_20210127_151312331](C:\Users\Hijin\Documents\카카오톡 받은 파일\KakaoTalk_20210127_151312331.jpg)
+![handshake](handshake.jpg)
 
 ### Three way handshake
 
