@@ -205,3 +205,25 @@ q = model_name(column_name='', ...)
 q.save()
 ```
 
+
+
+## resmon.exe
+
+> mysql 설치하려고 하는데 전에 썼던 mysql이 제대로 삭제되지 않아 mysql의 기본 포트인 3306을 사용할 수 없었다. 이를 해결하는 방법
+
+
+
+1. resmon.exe 실행
+
+2. 네트워크 - 수신 대기 포트에서 3306 포트에 해당하는 PID 확인
+
+3. cmd 관리자 권한으로 실행
+
+4. taskkill /F /PID PID번호
+
+   (taskkill : 프로그램 종료, /F: 프로세스를 강제로 종료하도록 지정, /PID: 프로세스ID)
+
+
+
+
+
