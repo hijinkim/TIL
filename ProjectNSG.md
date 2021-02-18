@@ -85,6 +85,7 @@
      ```
 
 4. 방금 찾은 거 ~~다른 거 구글링 하다가 얼떨결에 찾음~~
+   
    * `python manage.py migrate --run-syncdb` 명령어로 동기화
 
 
@@ -147,5 +148,60 @@ def NAME(request):
 
 
 
+## Django QuerySet
 
+> 전달받은 모델의 객체 목록
+
+
+
+### all()
+
+```python
+from app_name.models import model_name
+
+model_name.objects.all()
+```
+
+모든 데이터 가져옴, 반환되는 객체는 QuerySet
+
+해당하는 값이 없을 때 DoesNotExist 메시지 반환
+
+
+
+### get()
+
+```python
+model_name.object.get(column_name='')
+```
+
+하나의 row만 가져옴, 반환되는 객체는 object
+
+
+
+### filter()
+
+```python
+model_name.object.filter(column_name='')
+```
+
+()안의 조건을 만족하는 모든 row를 가져옴, 반환되는 객체는 object
+
+해당하는 값이 없을 때 빈 쿼리셋을 불러옴
+
+
+
+### create()
+
+```python
+model_name.object.create(column_name='')
+```
+
+
+
+### save()
+
+```python
+q = model_name(column_name='', ...)
+q.save()
+```
 
