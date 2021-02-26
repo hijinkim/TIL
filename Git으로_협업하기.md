@@ -24,7 +24,7 @@
 
    * 원본 레포(hijinkim/NarangSalGae)를 본인의 레포로 `Fork` 하기
    * 본인 레포를 `git clone` 하기
-   * 원본 프로젝트를 저장할 저장소 추가 `git remote add 이름 원본레포주소`
+   * 원본 프로젝트를 저장git할 저장소 추가 `git remote add 이름 원본레포주소`
    * `git remote -v` 했을 때 origin으로 본인의 레포의 fetch와 push, 위에서 지정한 이름으로 된 원본 레포의 fetch와 push 총 4개의 주소가 보여야함
 
 2. branch 생성
@@ -34,7 +34,7 @@
    * 브랜치 확인: `git branch`
    * 브랜치 이동: `git checkout 브랜치이름`
 
-3. 코드 작성, push
+3. 코드 작성, pushgit 
 
    * 코드 작성 후 add, commit 진행
 
